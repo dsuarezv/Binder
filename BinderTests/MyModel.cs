@@ -6,8 +6,22 @@ namespace BinderTests
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
+        private int mItemValue = 3;
         private double mValue;
         private int[] mData = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+        private MyModel mChild;
+
+        public string Name { get; set; }
+
+        public MyModel Child {
+            get { return mChild; }
+            set { mChild = value; }
+        }
+
+        public int this[int index] { 
+            get { return mItemValue; }
+            set { mItemValue = value; }
+        }
 
         public int[] Data {
             get {
