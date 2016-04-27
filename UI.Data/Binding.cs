@@ -4,7 +4,7 @@ using System.Reflection;
 
 namespace UI.Data
 {
-    public class Binding
+    public class Binding: IDisposable
     {
         private object mSourceObject;
         private object mTargetObject;
@@ -15,12 +15,12 @@ namespace UI.Data
         private PropertyChangedEventHandler mNotificationDelegate;
 
 
-        public BindingType Type { get; set; }
+        public BindingMode Type { get; set; }
 
 
-        public Binding(object sourceObject, string sourcePath, object targetObject, string targetPath, bool delaySetup = false)
+        public Binding(object sourceObject, string sourcePath, object targetObject, string targetPath, BindingMode type, bool delaySetup = false)
         {
-            Type = BindingType.TwoWays;
+            Type = type;
             mSourcePath = sourcePath;
             mSourceObject = sourceObject;
             mTargetPath = targetPath;
@@ -33,13 +33,13 @@ namespace UI.Data
         {
             switch (Type)
             {
-            case BindingType.SourceToTarget:
+            case BindingMode.SourceToTarget:
                 Setup(mSourceObject, mSourcePath, mTargetObject, mTargetPath);
                 break;
-            case BindingType.TargetToSource:
+            case BindingMode.TargetToSource:
                 Setup(mTargetObject, mTargetPath, mSourceObject, mSourcePath);
                 break;
-            case BindingType.TwoWays:
+            case BindingMode.TwoWay:
                 Setup(mSourceObject, mSourcePath, mTargetObject, mTargetPath);
                 Setup(mTargetObject, mTargetPath, mSourceObject, mSourcePath);
                 break;
@@ -59,7 +59,7 @@ namespace UI.Data
 
             // Register PropertyChanged event. This can only be objects, so the
             // indexed cases are ruled out (if the last element of a binding is 
-            // an indexed prop like Names[2], the content will be an object, so there should
+            // an indexed prop like Names[2], the content will be an object and there should
             // be a property name follwing. Otherwise, we can't register the notifychanged
             // event.
 
@@ -104,11 +104,11 @@ namespace UI.Data
 
 
 
-    public enum BindingType
+    public enum BindingMode
     { 
         SourceToTarget,
         TargetToSource,  // Check if it implements propertyChanged/collectionChanged
-        TwoWays
+        TwoWay
     }
 }
 
