@@ -12,13 +12,15 @@ namespace BinderTests
             var control = new MyControl() { Value = 0 };
             var model = new MyModel() { Value = 5 };
 
-            var b = new Binding(model, "Value", control, "Value");
-
+            new Binding(model, "Value", control, "Value");
             Assert.AreEqual(model.Value, control.Value);
 
             model.Value = 6;
-
             Assert.AreEqual(model.Value, control.Value);
+
+            control.Value = 8;
+            Assert.AreEqual(model.Value, control.Value);
+
         }
     }
 }
