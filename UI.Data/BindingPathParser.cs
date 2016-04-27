@@ -61,8 +61,8 @@ namespace UI.Data
                 return GetDirectPropertyValue(name, target, isLast, directCallback);
             }
             else
-            {
-                    return GetIndexedPropertyValue(name, target, indexer, isLast, listCallback, arrayCallback);
+            {  
+                return GetIndexedPropertyValue(name, target, indexer, isLast, listCallback, arrayCallback);
             }
         }
 
