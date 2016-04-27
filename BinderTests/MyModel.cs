@@ -7,7 +7,7 @@ namespace BinderTests
         public event PropertyChangedEventHandler PropertyChanged;
 
         private int mItemValue = 3;
-        private double mValue;
+        private int mValue;
         private int[] mData = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
         private MyModel mChild;
 
@@ -15,7 +15,7 @@ namespace BinderTests
 
         public MyModel Child {
             get { return mChild; }
-            set { mChild = value; }
+            set { mChild = value; OnPropertyChanged("Child"); }
         }
 
         public int this[int index] { 
@@ -29,11 +29,12 @@ namespace BinderTests
             }
         }
 
-        public double Value {
+        public int Value {
             get { return mValue; }
             set {
                 if (value == mValue) return;
                 mValue = value;
+                OnPropertyChanged("Value");
             }
         }
 
