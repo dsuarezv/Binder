@@ -94,13 +94,16 @@ namespace UI.Data
             if (notif == null) return;
 
             var newVal = p.GetValue(notif);
-            var oldVal = BindingPathParser.GetTargetValue(dest, destPath);
 
+            // DAVE: a traversal is done here and another below. May be possible to make just 
+            // one to get and set the value. Note that the 3 callbacks need to be implemented
+            // in this case. 
+            var oldVal = BindingPathParser.GetTargetValue(dest, destPath);
             if (oldVal == newVal) return;
 
             BindingPathParser.SetTargetValue(dest, destPath, newVal);
         }
-   }
+    }
 
 
 

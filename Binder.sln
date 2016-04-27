@@ -1,8 +1,6 @@
 
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Binder", "Binder\Binder.csproj", "{C0705AB4-9356-400F-9B6D-EEFAA14CB785}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UI.Data", "UI.Data\UI.Data.csproj", "{6E161D89-0948-4C91-8E54-0C39576B7B49}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BinderTests", "BinderTests\BinderTests.csproj", "{A17E1E13-697C-4379-B23D-EA96431F684E}"
@@ -13,10 +11,6 @@ Global
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{C0705AB4-9356-400F-9B6D-EEFAA14CB785}.Debug|x86.ActiveCfg = Debug|x86
-		{C0705AB4-9356-400F-9B6D-EEFAA14CB785}.Debug|x86.Build.0 = Debug|x86
-		{C0705AB4-9356-400F-9B6D-EEFAA14CB785}.Release|x86.ActiveCfg = Release|x86
-		{C0705AB4-9356-400F-9B6D-EEFAA14CB785}.Release|x86.Build.0 = Release|x86
 		{6E161D89-0948-4C91-8E54-0C39576B7B49}.Debug|x86.ActiveCfg = Debug|Any CPU
 		{6E161D89-0948-4C91-8E54-0C39576B7B49}.Debug|x86.Build.0 = Debug|Any CPU
 		{6E161D89-0948-4C91-8E54-0C39576B7B49}.Release|x86.ActiveCfg = Release|Any CPU
